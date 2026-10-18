@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kết quả xổ số 3 miền - XSMB, XSMT, XSMN hôm nay</title>
+<meta name="description" content="Xem kết quả xổ số ba miền Bắc, Trung, Nam nhanh chóng, thống kê loto, dò vé số trực tuyến.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="./">XỔ SỐ <span>3 MIỀN</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <nav id="nav">
+      <a href="#" data-region="mb" class="active">Xổ số Miền Bắc</a>
+      <a href="#" data-region="mt">Xổ số Miền Trung</a>
+      <a href="#" data-region="mn">Xổ số Miền Nam</a>
+      <a href="#do-ve">Dò vé số</a>
+      <a href="#lich">Lịch quay</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap notice">⚠ Đây là website mẫu: kết quả hiển thị là <b>dữ liệu giả lập</b>, không phải kết quả xổ số thật. Thay bằng dữ liệu thật tại <code>data/results.json</code> (xem README).</div>
+
+<main class="wrap layout">
+  <section class="main-col">
+    <div class="toolbar">
+      <div class="tabs" id="regionTabs">
+        <button data-region="mb" class="active">Miền Bắc</button>
+        <button data-region="mt">Miền Trung</button>
+        <button data-region="mn">Miền Nam</button>
+      </div>
+      <div class="datebox">
+        <button id="prevDay" title="Ngày trước">‹</button>
+        <input type="date" id="dateInput">
+        <button id="nextDay" title="Ngày sau">›</button>
+        <button id="todayBtn">Hôm nay</button>
+      </div>
+    </div>
+    <div id="results"></div>
+  </section>
+
+  <aside class="side-col">
+    <div class="card" id="do-ve">
+      <h3>Dò vé số</h3>
+      <p class="muted">Nhập số vé để đối chiếu với kết quả đang xem.</p>
+      <input id="ticket" inputmode="numeric" maxlength="6" placeholder="Nhập 2-6 chữ số">
+      <button class="primary" id="checkBtn">Dò kết quả</button>
+      <div id="checkOut" class="check-out"></div>
+    </div>
+    <div class="card" id="lich">
+      <h3>Lịch mở thưởng</h3>
+      <div id="schedule"></div>
+    </div>
+    <div class="card">
+      <h3>Thống kê nhanh</h3>
+      <div id="stats"></div>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">© <span id="yr"></span> Xổ số 3 miền · Website tĩnh, chạy được trên GitHub Pages và Hostinger.</div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

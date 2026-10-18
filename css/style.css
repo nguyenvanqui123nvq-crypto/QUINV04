@@ -1,0 +1,57 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;color:#222;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 12px}
+.site-header{background:#b71c1c;color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px}
+.logo{color:#fff;text-decoration:none;font-weight:800;font-size:22px;letter-spacing:1px}
+.logo span{color:#ffd54f}
+nav{display:flex;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;padding:16px 12px;font-weight:600;font-size:14px}
+nav a:hover,nav a.active{background:#8e0000}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.notice{margin-top:10px;background:#fff8e1;border:1px solid #ffe082;padding:8px 12px;border-radius:6px;font-size:13px}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px;margin-bottom:24px}
+.toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-bottom:12px}
+.tabs button,.datebox button{border:1px solid #b71c1c;background:#fff;color:#b71c1c;padding:8px 14px;cursor:pointer;font-weight:700;font-size:14px}
+.tabs button:first-child{border-radius:6px 0 0 6px}.tabs button:last-child{border-radius:0 6px 6px 0}
+.tabs button.active{background:#b71c1c;color:#fff}
+.datebox{display:flex}
+.datebox button{border-radius:0}.datebox button:first-child{border-radius:6px 0 0 6px}.datebox button:last-child{border-radius:0 6px 6px 0}
+.datebox input{border:1px solid #b71c1c;border-left:0;border-right:0;padding:6px 8px;font-size:14px}
+.card{background:#fff;border-radius:8px;padding:14px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h3{margin:0 0 10px;color:#b71c1c;font-size:16px;border-bottom:2px solid #b71c1c;padding-bottom:6px}
+.res-title{background:#b71c1c;color:#fff;padding:10px 14px;border-radius:8px 8px 0 0;font-weight:700;font-size:16px}
+.res-box{background:#fff;border-radius:0 0 8px 8px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+table.kq{width:100%;border-collapse:collapse}
+table.kq th,table.kq td{border:1px solid #e0e0e0;padding:8px 6px;text-align:center}
+table.kq th{background:#fafafa;width:70px;font-weight:700;color:#555}
+table.kq td span{display:inline-block;margin:2px 10px;font-size:18px;font-weight:700;letter-spacing:1px}
+table.kq tr.db td span{color:#d50000;font-size:24px}
+table.kq tr.g8 td span{color:#d50000}
+table.multi th.prov{background:#ffebee;color:#b71c1c;width:auto}
+table.multi td span{display:block;margin:3px 0;font-size:16px}
+table.multi tr.db td span{font-size:19px}
+table.loto{width:100%;border-collapse:collapse;margin-top:0}
+table.loto th,table.loto td{border:1px solid #e0e0e0;padding:6px 8px;text-align:left}
+table.loto th{width:44px;text-align:center;background:#fafafa}
+.loto-wrap{padding:10px}.loto-wrap h4{margin:6px 0;color:#b71c1c}
+.empty{background:#fff;border-radius:8px;padding:30px;text-align:center;color:#777}
+.muted{color:#777;font-size:13px}
+#ticket{width:100%;padding:9px;border:1px solid #ccc;border-radius:6px;font-size:16px;margin-bottom:8px}
+.primary{width:100%;background:#b71c1c;color:#fff;border:0;padding:10px;border-radius:6px;font-weight:700;cursor:pointer}
+.primary:hover{background:#8e0000}
+.check-out{margin-top:10px;font-weight:700}.win{color:#2e7d32}.lose{color:#c62828}
+#schedule table{width:100%;border-collapse:collapse;font-size:13px}
+#schedule td{border-bottom:1px solid #eee;padding:5px 3px;vertical-align:top}
+#schedule td:first-child{font-weight:700;white-space:nowrap;padding-right:6px}
+#schedule tr.today{background:#fff3e0}
+.stat-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed #eee}
+.site-footer{background:#222;color:#bbb;text-align:center;padding:16px 0;font-size:13px}
+@media(max-width:800px){
+  .layout{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  nav{display:none;position:absolute;top:52px;left:0;right:0;background:#b71c1c;flex-direction:column}
+  nav.open{display:flex}
+  table.kq td span{margin:2px 5px;font-size:16px}
+  table.multi td span{font-size:13px}
+}
