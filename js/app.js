@@ -51,6 +51,7 @@
   function gen(prizes, key) {
     var ext = state.data[key];
     if (ext) return ext;
+    if (state.real) return null;
     var r = rng(seedOf(key)), out = [];
     prizes.forEach(function (p) {
       var arr = [];
@@ -89,6 +90,13 @@
     }
 
     var provs = provincesFor(region, d), html = '', all = [];
+    var none = '<div class="empty">Chưa có kết quả ' + REGION_NAME[region] + ' cho ' + fmt(d) + '. Dữ liệu được cập nhật tự động sau giờ quay.</div>';
+    if (region !== 'mb') {
+      provs = provs.filter(function (p) { return gen(PRIZES_MI, region + '/' + iso(d) + '/' + p); });
+    }
+    if (region === 'mb' ? !gen(PRIZES_MB, 'mb/' + iso(d)) : !provs.length) {
+      box.innerHTML = none; state.current = null; renderStats(); return;
+    }
     if (region === 'mb') {
       var rows = gen(PRIZES_MB, 'mb/' + iso(d));
       all = rows;
@@ -182,5 +190,12 @@
   renderSchedule();
   // Nạp dữ liệu thật (nếu có) rồi hiển thị
   fetch('data/results.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
-    .then(function (j) { state.data = j || {}; render(); });
+    .then(function (j) { state.data = j || {}; state.real = Object.keys(state.data).length > 0;
+      var nt = document.querySelector('.notice');
+      if (state.real && nt) nt.innerHTML = 'Dữ liệu tự động cập nhật từ <a href="https://383.im/" target="_blank" rel="noopener">383.im</a>. Kết quả chỉ mang tính tham khảo, vui lòng đối chiếu với kết quả chính thức của các công ty xổ số.';
+      if (state.real && !state.data['mb/' + iso(state.date)]) {
+        var last = Object.keys(state.data).filter(function (k) { return k.indexOf('mb/') === 0; }).sort().pop();
+        if (last) { var p = last.slice(3).split('-'); state.date = new Date(+p[0], +p[1] - 1, +p[2]); }
+      }
+      render(); });
 })();

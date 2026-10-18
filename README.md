@@ -39,3 +39,7 @@ Cách 1 (nhanh): hPanel → Websites → File Manager → vào `public_html` →
 Cách 2: hPanel → Advanced → Git → nối repo GitHub, đặt thư mục đích `public_html`, bấm Deploy; bật Auto-deployment để mỗi lần push tự cập nhật.
 
 Sau khi cài SSL, bỏ dấu `#` ở đoạn ép HTTPS trong `.htaccess`.
+
+## Tự động cập nhật
+GitHub Actions (`.github/workflows/update.yml`) chạy mỗi ngày sau giờ quay, chạy `scripts/update.js` lấy dữ liệu từ https://api.383.im (điều khoản: https://383.im/terms-of-service/) và commit `data/results.json`. Netlify/Hostinger Git tự triển khai lại khi có commit mới. Chạy thủ công: tab Actions -> Run workflow.
+
